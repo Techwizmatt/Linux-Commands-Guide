@@ -16,7 +16,7 @@ This document is a markdown dictionary with copy and paste commands that can be 
 
 ## File System
 
-### `cd` {#cd} *also known as* **Change Directory**
+### <a name="cd"></a> `cd` *also known as* **Change Directory**
 
 Description:
 
@@ -46,7 +46,7 @@ Examples:
 
 ---
 
-### `pwd` *also known as* **Print Working Directory** {#pwd}
+### <a name="pwd"></a> `pwd` *also known as* **Print Working Directory** 
 
 Description:
 
@@ -61,7 +61,7 @@ Examples:
 
 ---
 
-### `ls` *also known as* **List** {#ls}
+### <a name="ls"></a> `ls` *also known as* **List**
 
 Description:
 
@@ -110,7 +110,7 @@ Examples:
 
 ---
 
-### `mkdir` *also known as* **Make Directory** {#mkdir}
+### <a name="mkdir"></a> `mkdir` *also known as* **Make Directory**
 
 Description:
 
@@ -145,7 +145,7 @@ Examples:
 
 ---
 
-### `rmdir` *also known as* **Remove Directory** {#rmdir}
+### <a name="rmdir"></a> `rmdir` *also known as* **Remove Directory** 
 
 Description:
 
@@ -167,7 +167,7 @@ Examples:
 >Attempts to remove "SubFolder" and its parent directory "FolderName" in the current working directory. Both directories must be empty for this to succeed.
 
 ---
-### `rm` *also known as* **Remove Files or Directories** {#rm}
+### <a name="rm"></a> `rm` *also known as* **Remove Files or Directories** 
 
 Description:
 
@@ -208,7 +208,7 @@ Examples:
 > Prompts for confirmation before attempting to remove the file named "FileName".
 
 ---
-### `cp` *also known as* **Copy Files and Directories** {#cp}
+### <a name="cp"></a> `cp` *also known as* **Copy Files and Directories** 
 
 Description:
 
@@ -250,7 +250,7 @@ Examples:
 
 ---
 
-### `mv` *also known as* **Move or Rename Files** {#mv}
+### <a name="mv"></a> `mv` *also known as* **Move or Rename Files**
 
 Description:
 
