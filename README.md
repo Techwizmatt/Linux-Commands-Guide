@@ -107,7 +107,7 @@ This document is a markdown dictionary with copy and paste commands that can be 
 - [` ? ` | Question Mark | Wildcard](#questionMark)
 - [` ! ` | Exclamation Mark | Bang ](#exclamationMark)
 - [` $ ` | Dollar Sign | Variable ](#dollarSign)
-- [` ' ` | Quotation | Text Literal ](#doubleQuotation)
+- [` ' ` | Quotation | Text Literal ](#quotation)
 - [` " ` | Double Quotation | Text Literal with Expansions ](#doubleQuotation)
 - [` . ` | Dot | Current Directory ](#dot)
 - [` .. ` | Double Dot | Parent Directory ](#doubleDot)
@@ -3326,7 +3326,7 @@ Examples:
 
 ## <a name="symbols"></a> Symbols
 
-### ` ~ ` | Tilde | Users Home Directory
+### <a name="tilde"></a> ` ~ ` | Tilde | Users Home Directory
 
 The tilde symbol (~) represents the user's home directory in Linux. For example, if the current user is "john," typing `cd ~` will take them to the "/home/john" directory.
 
@@ -3339,7 +3339,7 @@ Examples:
 ###### [ ← Back to table of contents ](#tableOfContents)
 
 
-### ` | ` | Vertical Line | Pipe
+### <a name="pipe"></a> ` | ` | Vertical Line | Pipe
 
 The vertical line (|) is known as the "pipe" symbol in Linux. It is used to connect the output of one command as the input to another. For example, `command1 | command2` will send the output of `command1` as the input to `command2`.
 
