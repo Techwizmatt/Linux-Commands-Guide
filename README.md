@@ -1,6 +1,6 @@
 # Common Commands for Linux and Mac OS
 
-This document is a markdown dictionary with copy and paste commands that can be used for Linux Flavors as well as Mac OS
+This document is a markdown dictionary with copy and paste commands that can be used for most Linux Flavors as well as Mac OS. Some commands are operating system specific and will mark as such.
 
 ## <a name="tableOfContents"></a> Table of Contents:
 
