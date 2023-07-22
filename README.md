@@ -2,9 +2,21 @@
 
 This document is a markdown dictionary with copy and paste commands that can be used for Linux Flavors as well as Mac OS
 
+
+## Table of Contents:
+
+- [`CD` | Change Directory](#cd)
+- [`PWD` | Print Working Directory](#pwd)
+- [`LS` | List](#ls)
+- [`MKDIR` | Make Directories](#mkdir)
+- [`RMDIR` | Remove Directories](#rmdir)
+- [`RM` | Remove Files and Directories](#rm)
+- [`CP` | Copy Files and Directories](#cp)
+- [`MV` | Move or Rename files and Directories](#mv)
+
 ## File System
 
-### `cd` *also known as* **Change Directory**
+### `cd` {#cd} *also known as* **Change Directory**
 
 Description:
 
@@ -34,7 +46,7 @@ Examples:
 
 ---
 
-### `pwd` *also known as* **Print Working Directory**
+### `pwd` *also known as* **Print Working Directory** {#pwd}
 
 Description:
 
@@ -49,7 +61,7 @@ Examples:
 
 ---
 
-### `ls` *also known as* **List**
+### `ls` *also known as* **List** {#ls}
 
 Description:
 
@@ -98,7 +110,7 @@ Examples:
 
 ---
 
-### `mkdir` *also known as* **Make Directory**
+### `mkdir` *also known as* **Make Directory** {#mkdir}
 
 Description:
 
@@ -133,7 +145,7 @@ Examples:
 
 ---
 
-### `rmdir` *also known as* **Remove Directory**
+### `rmdir` *also known as* **Remove Directory** {#rmdir}
 
 Description:
 
@@ -155,7 +167,7 @@ Examples:
 >Attempts to remove "SubFolder" and its parent directory "FolderName" in the current working directory. Both directories must be empty for this to succeed.
 
 ---
-### `rm` *also known as* **Remove Files or Directories**
+### `rm` *also known as* **Remove Files or Directories** {#rm}
 
 Description:
 
@@ -196,7 +208,7 @@ Examples:
 > Prompts for confirmation before attempting to remove the file named "FileName".
 
 ---
-### `cp` *also known as* **Copy Files and Directories**
+### `cp` *also known as* **Copy Files and Directories** {#cp}
 
 Description:
 
@@ -238,7 +250,7 @@ Examples:
 
 ---
 
-### `mv` *also known as* **Move or Rename Files**
+### `mv` *also known as* **Move or Rename Files** {#mv}
 
 Description:
 
