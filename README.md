@@ -4,7 +4,7 @@ This document is a markdown dictionary with copy and paste commands that can be 
 
 ## <a name="tableOfContents"></a> Table of Contents:
 
-[**File System**](#fileSystem)
+### [**File System**](#fileSystem)
 
 - [`cd` | Change Directory](#cd)
 - [`pwd` | Print Working Directory](#pwd)
@@ -38,7 +38,7 @@ This document is a markdown dictionary with copy and paste commands that can be 
 - [`zip` | Package files into a zip archive](#zip)
 - [`unzip` | Extract files from a zip archive](#unzip)
 
-[**System and Service manager**](#systemServices)
+### [**System and Service manager**](#systemServices)
 
 - [`sudo` | Execute a command with superuser (root) privileges ](#sudo)
 - [`su` | Switch to another user account or become the superuser ](#su)
@@ -65,7 +65,7 @@ This document is a markdown dictionary with copy and paste commands that can be 
 - [`iptables` | Configure firewall rules (IPv4)](#iptables)
 - [`ufw` | Uncomplicated Firewall - a user-friendly interface for managing iptables (Ubuntu and Debian-based systems)](#ufw)
 
-[**Remote Connectivity**](#remoteConnectivity)
+### [**Remote Connectivity**](#remoteConnectivity)
 
 - [`ssh` | Secure Shell command for remote login and executing commands on a remote machine securely](#ssh)
 - [`sshuttle` | Create a secure VPN tunnel using SSH](#sshuttle)
@@ -73,7 +73,7 @@ This document is a markdown dictionary with copy and paste commands that can be 
 - [`sftp` | Secure File Transfer Protocol for interactive file transfers between local and remote machines](#sftp)
 - [`rsync` | Synchronize files and directories between local and remote systems](#rsync)
 
-[**Networking**](#networkingCommands)
+### [**Networking**](#networkingCommands)
 
 - [`ping` |  Send ICMP echo request packets to test network connectivity](#ping)
 - [`ifconfig` | Display or configure network interfaces](#ifconfig)
@@ -86,18 +86,79 @@ This document is a markdown dictionary with copy and paste commands that can be 
 - [`dig` | DNS lookup tool for querying DNS servers and retrieving DNS records](#dig)
 - [`arp` | Display and modify the ARP (Address Resolution Protocol) cache](#dig)
 
-[**Package Management**](#packageManagement)
+### [**Package Management**](#packageManagement)
 
 - [`apt-get` | Command-line tool for handling packages in Debian-based systems](#apt-get)
 - [`yum` | Package manager for systems based on Fedora/RHEL](#yum)
 - [`pacman` | Package manager for Arch Linux](#pacman)
 - [`brew` | Missing Package manager for Mac OS](#brew)
 
-[**Other**](#otherCommands)
+### [**Other**](#otherCommands)
 
 - [`man` | Display manual information on a command](#man)
 - [`history` | Display history of commands performed by a user](#history)
 - [`alias` | Create an alias of a command](#alias)
+
+### [**Symbols**](#symbols)
+
+- [` ~ ` | Tilde | Users Home Directory](#tilde)
+- [` | ` | Vertical Line | Pipe ](#pipe)
+- [` * ` | Asterisk | Wildcard](#asterisk)
+- [` ? ` | Question Mark | Wildcard](#questionMark)
+- [` ! ` | Exclamation Mark | Bang ](#exclamationMark)
+- [` $ ` | Dollar Sign | Variable ](#dollarSign)
+- [` ' ` | Quotation | Text Literal ](#doubleQuotation)
+- [` " ` | Double Quotation | Text Literal with Expansions ](#doubleQuotation)
+- [` . ` | Dot | Current Directory ](#dot)
+- [` .. ` | Double Dot | Parent Directory ](#doubleDot)
+- [` ../ ` | Double Dot Slash | Relative Path ](#doubleDotSlash)
+- [` / ` | Forward Slash | Directory Seperation ](#forwardSlash)
+- [` > ` | Greater Than | Output Direction ](#greaterThan)
+- [` < ` | Less Than | Input Direction ](#lessThan)
+- [` >> ` | Double Greater Than | Append Output ](#doubleGreaterThan)
+- [` \ ` | Backslash | Escape Character ](#backslash)
+
+### [**Command Line Shortcuts**](#shortcuts)
+
+- Navigation:
+
+    - `Ctrl + A` : Move cursor to the beginning of the line.
+    - `Ctrl + E`: Move cursor to the end of the line.
+    - `Ctrl + B` or` Left Arrow`: Move cursor one character backward.
+    - `Ctrl + F` or `Right Arrow`: Move cursor one character forward.
+    - `Alt + B`: Move cursor one word backward.
+    - `Alt + F`: Move cursor one word forward.
+- Editing:
+
+    - `Ctrl + U`: Clear the line before the cursor.
+    - `Ctrl + K`: Clear the line after the cursor.
+    - `Ctrl + W`: Delete the word before the cursor.
+    - `Alt + D`: Delete the word after the cursor.
+    - `Ctrl + Y`: Paste the last item deleted or cut *(after using Ctrl + U/K/W)*.
+- History:
+
+    - `Ctrl + R`: Search command history interactively (reverse search).
+    - `Ctrl + G`: Exit history search mode without running a command.
+    - `Up Arrow` or `Ctrl + P`: Go to the previous command in history.
+    - `Down Arrow` or `Ctrl + N`: Go to the next command in history.
+    - `!!`: Repeat the last command.
+    - `!n`: Repeat the nth command from history *(replace `n` with the command number)*.
+- Tab Completion:
+
+    - `Tab`: Auto-complete file and directory names.
+    - `Tab + Tab`: Display a list of possible completions (double tap Tab).
+    - `Alt + /`: Auto-complete a command using Bash's "word-based" completion.
+- Job Control:
+
+    - `Ctrl + C`: Terminate the current foreground process.
+    - `Ctrl + Z`: Suspend the current foreground process and put it in the background.
+    - `jobs`: List the background jobs.
+    - `bg`: Resume a suspended background job.
+    - `fg`: Bring a background job to the foreground.
+- Miscellaneous:
+
+    - `Ctrl + L`: Clear the screen (equivalent to the `clear` command).
+    - `Ctrl + D`: Exit the current shell (equivalent to typing `exit`).
 
 ## <a name="fileSystem"></a> File System
 
@@ -3262,3 +3323,175 @@ Examples:
 
 ###### [ ← Back to table of contents ](#tableOfContents)
 ---
+
+## <a name="symbols"></a> Symbols
+
+### ` ~ ` | Tilde | Users Home Directory
+
+The tilde symbol (~) represents the user's home directory in Linux. For example, if the current user is "john," typing `cd ~` will take them to the "/home/john" directory.
+
+Examples:
+
+`cd ~`
+
+> Takes you to your home directory
+
+###### [ ← Back to table of contents ](#tableOfContents)
+
+
+### ` | ` | Vertical Line | Pipe
+
+The vertical line (|) is known as the "pipe" symbol in Linux. It is used to connect the output of one command as the input to another. For example, `command1 | command2` will send the output of `command1` as the input to `command2`.
+
+Example:
+
+`ps aux | grep "chrome"`
+
+> Here, [ pas aux ](#ps) lists all processes running on the system, and then the output is passed through the pipe "` | `" to [ grep ](#grep) "chrome", which filters and displays only the lines containing the word "chrome" (typically indicating Chrome browser processes).
+
+###### [ ← Back to table of contents ](#tableOfContents)
+
+
+### <a name="asterisk"></a> ` * ` | Asterisk | Wildcard
+
+The asterisk (*) is a wildcard symbol in Linux that represents zero or more characters in a file or directory name. For example, `file*.txt` will match all files starting with "file" and ending with ".txt."
+
+Example:
+
+`ls documents/*.txt`
+
+> In this command, [ ls ](#ls) is used to list the files in the documents directory, and the pattern `*.txt` is passed as an argument. The asterisk (`*`) will match any file name in the documents directory that ends with ` ".txt" `, and the result will be a list of all the text files in the directory.
+
+###### [ ← Back to table of contents ](#tableOfContents)
+
+
+### <a name="questionMark"></a>  ` ? ` | Question Mark | Wildcard
+
+The question mark (?) is another wildcard symbol in Linux, representing a single character in a file or directory name. For example, `file?.txt` will match "file1.txt" and "fileA.txt" but not "file12.txt."
+
+Example:
+
+`ls logs/log?.txt`
+
+> In this command, [ ls ](#ls) is used to list the files in the logs directory, and the pattern `log?.txt` is passed as an argument. The question mark (`?`) will match any single character in that position of the filename. So, this command will list all the files in the logs directory with names like `"log1.txt"`, `"log2.txt"`, `"log3.txt"` and so on.
+
+###### [ ← Back to table of contents ](#tableOfContents)
+
+
+### <a name="exclamationMark"></a>  ` ! ` | Exclamation Mark | Bang
+
+The exclamation mark (!) is commonly referred to as "bang" in Linux. It is often used in combination with other commands, like in history substitution. For example, `!n` will execute the nth command from the command history.
+
+Example:
+
+Suppose you run the command `ls -la`, You can then run:
+
+`!!`
+
+> This will then rerun the [ ls ](#ls) command because it was the last command ran.  
+
+###### [ ← Back to table of contents ](#tableOfContents)
+
+
+### <a name="dollarSign"></a>  ` $ ` | Dollar Sign | Variable
+
+The dollar sign ($) is used to represent a variable in Linux. Variables store data that can be accessed and manipulated by scripts and commands. For example, `$HOME` represents the user's home directory.
+
+Examples:
+
+`echo $HOME`
+
+> This will display the path to the user's home directory, such as "/home/john" for user "john." 
+
+`echo $PATH`
+
+> This will display a list of locations (directories) where the computer looks for programs and commands when you type something in the terminal.
+
+###### [ ← Back to table of contents ](#tableOfContents)
+
+
+### <a name="quotation"></a>  ` ' ` | Quotation | Text Literal
+
+The single quotation mark (') is used to create a text literal in Linux. Anything within single quotes is treated as a literal string, and variables or special characters inside it are not expanded. For example, `'Hello $USER'` will be displayed as it is, without expanding the `$USER` variable.
+
+Examples:
+
+`echo '$HOME'`
+
+> This will ***NOT*** display the path to the user's home directory, such as "/home/john" for user "john." but will literally display the characters $HOME. Checkout [  $  | Variable ](#dollarSign) for an example of printing out the users home directory or [  "  | Double Quotation ](#doubleQuotation) for an example of printing out the users home directory concatenated in a string.
+
+
+###### [ ← Back to table of contents ](#tableOfContents)
+
+
+### <a name="doubleQuotation"></a>  ` " ` | Double Quotation | Text Literal with Expansions
+
+The double quotation mark (") is used to create a text literal with expansions in Linux. Variables and certain escape sequences inside double quotes are expanded. For example, `"Hello $USER"` will display "Hello" followed by the actual username.
+
+Example:
+
+Suppose your username is `john` and you're home directory is at `/home/john`
+
+`echo "Hello my name is $USER and my home directory is at $HOME"`
+
+>  Double Quotes is essential in this case to allow the shell to substitute the values of the variables into the string before printing it, resulting in an output like `Hello my name is john and my home directory is at /home/john`. Checkout [  $  | Variable ](#dollarSign) for an example of Variables.
+
+
+###### [ ← Back to table of contents ](#tableOfContents)
+
+
+### <a name="dot"></a>  ` . ` | Dot | Current Directory
+
+The dot (.) represents the current directory in Linux. It is used to refer to the current working directory in commands and scripts.
+
+###### [ ← Back to table of contents ](#tableOfContents)
+
+
+### <a name="doubleDot"></a>  ` .. ` | Double Dot | Parent Directory
+
+The double dot (..) represents the parent directory of the current directory in Linux. It is used to move up one level in the directory structure.
+
+###### [ ← Back to table of contents ](#tableOfContents)
+
+
+### <a name="doubleDotSlash"></a>  ` ../ ` | Double Dot Slash | Relative Path
+
+The combination of double dot and a forward slash (../) is used to indicate a relative path in Linux. It allows you to specify a file or directory in the parent directory.
+
+###### [ ← Back to table of contents ](#tableOfContents)
+
+
+### <a name="forwardSlash"></a>  ` / ` | Forward Slash | Directory Separation
+
+The forward slash (/) is used as a directory separator in Linux. It is used to separate directory names in the path of a file or directory.
+
+###### [ ← Back to table of contents ](#tableOfContents)
+
+
+### <a name="greaterThan"></a>  ` > ` | Greater Than | Output Direction
+
+The greater-than symbol (>) is used for output redirection in Linux. It allows you to redirect the standard output of a command to a file instead of displaying it on the screen. For example, `ls > filelist.txt` will save the output of the `ls` command in the file "filelist.txt."
+
+###### [ ← Back to table of contents ](#tableOfContents)
+
+
+### <a name="lessThan"></a>  ` < ` | Less Than | Input Direction
+
+The less-than symbol (<) is used for input redirection in Linux. It allows you to feed a file as input to a command. For example, `sort < input.txt` will sort the contents of "input.txt."
+
+###### [ ← Back to table of contents ](#tableOfContents)
+
+
+### <a name="doubleGreaterThan"></a>  ` >> ` | Double Greater Than | Append Output
+
+The double greater-than symbol (>>) is used for appending output to a file in Linux. It works similarly to the single greater-than symbol, but it appends the output to the file instead of overwriting it.
+
+###### [ ← Back to table of contents ](#tableOfContents)
+
+
+### <a name="backslash"></a>  ` \ ` | Backslash | Escape Character
+
+The backslash (\) is the escape character in Linux. It is used to treat special characters literally or to escape characters that have special meanings in Linux. For example, `\$` will be displayed as "$" instead of being interpreted as a variable.
+
+###### [ ← Back to table of contents ](#tableOfContents)
+
