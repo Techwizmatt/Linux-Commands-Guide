@@ -91,6 +91,7 @@ This document is a markdown dictionary with copy and paste commands that can be 
 - [`apt-get` | Command-line tool for handling packages in Debian-based systems](#apt-get)
 - [`yum` | Package manager for systems based on Fedora/RHEL](#yum)
 - [`pacman` | Package manager for Arch Linux](#pacman)
+- [`brew` | Missing Package manager for Mac OS](#brew)
 
 [**Other**](#otherCommands)
 
@@ -2457,8 +2458,786 @@ Examples:
 
 ## <a name="remoteConnectivity"></a> Remote Connectivity
 
+### <a name="ssh"></a> `ssh` *also known as* **Secure Shell**
+
+Description:
+
+> `ssh` (Secure Shell) is a cryptographic network protocol used to securely access and manage remote systems over an unsecured network. It provides encrypted communication between the client and the server.
+
+**Available Flags:**
+
+`<user>@<host>` ***(Connect to Remote Host)*** 
+> `ssh <user>@<host>` establishes a secure shell connection to the specified remote host.
+
+`-p` or `--port` ***(Specify Port Number)***
+> `ssh -p <port> <user>@<host>` connects to the remote host on the specified port number.
+
+`-i` or `--identity` ***(Select Identity File)***
+> `ssh -i <private_key> <user>@<host>` uses the specified private key file for authentication.
+
+Examples:
+
+`ssh user@example.com`
+
+> Connects to the remote host `example.com` using the default port 22.
+
+`ssh -p 2222 user@example.com`
+
+> Connects to the remote host `example.com` on port 2222.
+
+`ssh -i ~/.ssh/private_key user@example.com`
+
+> Connects to the remote host `example.com` using the specified private key file.
+
+###### [ ← Back to table of contents ](#tableOfContents)
+---
+
+### <a name="sshuttle"></a> `sshuttle`
+
+Description:
+
+> `sshuttle` is a tool used to create a VPN-like connection over SSH. It allows you to route your internet traffic through an SSH tunnel, providing secure access to remote networks. This command requires installation and is available on most Linux Systems as well as Mac OS. [Install sshuttle](https://github.com/sshuttle/sshuttle#obtaining-sshuttle)
+
+**Available Flags:**
+
+`<server>` ***(Create VPN-Like Connection)***
+> `sshuttle -r <user>@<server> <subnet>` creates a VPN-like connection through SSH to the specified server and subnet.
+
+`-D` or `--dns` ***(Use Remote DNS)***
+> `sshuttle -r <user>@<server> <subnet> -D` routes DNS queries through the remote DNS server.
+
+`--exclude` ***(Exclude Subnet from VPN)***
+> `sshuttle --exclude <subnet>` excludes the specified subnet from the VPN.
+
+Examples:
+
+`sshuttle -r user@example.com 0/0`
+
+> Routes all internet traffic through the VPN-like connection to `example.com`.
+
+`sshuttle -r user@example.com 10.0.0.0/24`
+
+> Routes only traffic for the subnet `10.0.0.0/24` through the VPN-like connection to `example.com`.
+
+`sshuttle -r user@example.com 0/0 -D`
+
+> Routes all internet traffic and DNS queries through the VPN-like connection to `example.com`.
+
+###### [ ← Back to table of contents ](#tableOfContents)
+---
+
+### <a name="scp"></a> `scp` *also known as* **Secure Copy**
+
+Description:
+
+> `scp` (Secure Copy) is a command-line tool used to securely transfer files between local and remote hosts. It uses SSH for data transfer and provides encryption and authentication.
+
+**Available Flags:**
+
+`<source>` ***(Source File or Directory)***
+> `scp <source> <user>@<host>:<destination>` copies the specified file or directory from the local machine to the remote host.
+
+`<user>@<host>:<source>` ***(Source File or Directory on Remote Host)***
+> `scp <user>@<host>:<source> <destination>` copies the specified file or directory from the remote host to the local machine.
+
+Examples:
+
+`scp file.txt user@example.com:/home/user/`
+
+> Copies `file.txt` from the local machine to the remote host `example.com` in the user's home directory.
+
+`scp user@example.com:/var/log/access.log .`
+
+> Copies `access.log` from the remote host `example.com` to the current directory on the local machine.
+
+###### [ ← Back to table of contents ](#tableOfContents)
+---
+
+### <a name="sftp"></a> `sftp` *also known as* **Secure File Transfer Protocol**
+
+Description:
+
+> `sftp` (Secure File Transfer Protocol) is an interactive command-line tool used for secure file transfer between local and remote hosts. It operates over an encrypted SSH session.
+
+**Available Flags:**
+
+`<user>@<host>` ***(Connect to Remote Host)***
+> `sftp <user>@<host>` establishes an SFTP connection to the specified remote host.
+
+Examples:
+
+`sftp user@example.com`
+
+> Connects to the remote host `example.com` via SFTP.
+
+###### [ ← Back to table of contents ](#tableOfContents)
+---
+
+### <a name="rsync"></a> `rsync`
+
+Description:
+
+> `rsync` is a powerful and versatile command-line utility used for synchronizing files and directories between local and remote systems. It efficiently transfers only the differences between source and destination files.
+
+**Available Flags:**
+
+`<source>` ***(Source File or Directory)***
+> `rsync <source> <user>@<host>:<destination>` copies the specified file or directory from the local machine to the remote host.
+
+`<user>@<host>:<source>` ***(Source File or Directory on Remote Host)***
+> `rsync <user>@<host>:<source> <destination>` copies the specified file or directory from the remote host to the local machine.
+
+`-a` or `--archive` ***(Archive Mode)***
+> `rsync -a <source> <destination>` enables archive mode, preserving permissions, ownership, and timestamps.
+
+`-v` or `--verbose` ***(Verbose Output)***
+> `rsync -v <source> <destination>` provides verbose output, showing detailed progress during the transfer.
+
+`-z` or `--compress` ***(Compress Files During Transfer)***
+> `rsync -z <source> <destination>` compresses files during the transfer to reduce bandwidth usage.
+
+Examples:
+
+`rsync -avz /path/to/local/file.txt user@example.com:/path/to/remote/`
+
+> Synchronizes `file.txt` from the local machine to the remote host `example.com`.
+
+`rsync -avz user@example.com:/path/to/remote/file.txt /path/to/local/`
+
+> Synchronizes `file.txt` from the remote host `example.com` to the local machine.
+
+###### [ ← Back to table of contents ](#tableOfContents)
+---
+
 ## <a name="networkingCommands"></a> Networking
+
+### <a name="ping"></a> `ping`
+
+Description:
+
+> `ping` is a command-line utility used to test the reachability of a host on an Internet Protocol (IP) network. It sends ICMP echo request packets to the target host and waits for ICMP echo reply packets.
+
+**Available Flags:**
+
+`<host>` ***(Target Host)***
+> `ping <host>` sends ICMP echo requests to the specified host.
+
+Examples:
+
+`ping example.com`
+
+> Pings the host `example.com` to check its reachability.
+
+###### [ ← Back to table of contents ](#tableOfContents)
+---
+
+### <a name="ifconfig"></a> `ifconfig` *also known as* **Interface Configuration**
+
+Description:
+
+> `ifconfig` is a command-line tool used to configure network interfaces on Unix-like operating systems. It provides information about the current network configuration of the system.
+
+**Available Flags:**
+
+`-a` or `--all` ***(Display All Interfaces)***
+> `ifconfig -a` displays information about all network interfaces, including those that are down.
+
+`<interface>` ***(Display Specific Interface)***
+> `ifconfig <interface>` displays information about the specified network interface.
+
+Examples:
+
+`ifconfig`
+
+> Displays information about all active network interfaces.
+
+`ifconfig -a`
+
+> Displays information about all network interfaces, including those that are down.
+
+`ifconfig eth0`
+
+> Displays information about the `eth0` network interface.
+
+###### [ ← Back to table of contents ](#tableOfContents)
+---
+
+### <a name="netstat"></a> `netstat` *also known as* **Network Statistics**
+
+Description:
+
+> `netstat` is a command-line tool used to display various network-related information, such as active network connections, routing tables, and network interface statistics.
+
+**Available Flags:**
+
+`-t` or `--tcp` ***(Show TCP Connections)***
+> `netstat -t` displays all TCP connections.
+
+`-u` or `--udp` ***(Show UDP Connections)***
+> `netstat -u` displays all UDP connections.
+
+`-r` or `--route` ***(Show Routing Table)***
+> `netstat -r` displays the kernel routing table.
+
+`-i` or `--interfaces` ***(Show Interface Statistics)***
+> `netstat -i` displays a table of network interfaces and their statistics.
+
+Examples:
+
+`netstat`
+
+> Displays all active network connections.
+
+`netstat -t`
+
+> Displays all TCP connections.
+
+`netstat -u`
+
+> Displays all UDP connections.
+
+`netstat -r`
+
+> Displays the kernel routing table.
+
+###### [ ← Back to table of contents ](#tableOfContents)
+---
+
+### <a name="wget"></a> `wget`
+
+Description:
+
+> `wget` is a command-line utility used to download files from the web. It supports downloading via HTTP, HTTPS, and FTP protocols.
+
+**Available Flags:**
+
+`<URL>` ***(Download File)***
+> `wget <URL>` downloads the file from the specified URL.
+
+`-O` or `--output-document` ***(Save to Specific File)***
+> `wget -O <filename> <URL>` downloads the file from the specified URL and saves it with the given filename.
+
+Examples:
+
+`wget https://example.com/file.txt`
+
+> Downloads the `file.txt` from `example.com`.
+
+`wget -O myfile.txt https://example.com/file.txt`
+
+> Downloads the `file.txt` from `example.com` and saves it as `myfile.txt`.
+
+###### [ ← Back to table of contents ](#tableOfContents)
+---
+
+### <a name="curl"></a> `curl`
+
+Description:
+
+> `curl` is a command-line tool used to transfer data to or from a server using various protocols, including HTTP, HTTPS, FTP, and more.
+
+**Available Flags:**
+
+`<URL>` ***(Download File or Perform HTTP Request)***
+> `curl <URL>` downloads the file or performs an HTTP request to the specified URL.
+
+`-o` or `--output` ***(Save to Specific File)***
+> `curl -o <filename> <URL>` downloads the file from the specified URL and saves it with the given filename.
+
+`-I` or `--head` ***(Show Headers Only)***
+> `curl -I <URL>` fetches and displays the headers only, not the whole document.
+
+Examples:
+
+`curl https://example.com/file.txt`
+
+> Downloads the `file.txt` from `example.com`.
+
+`curl -o myfile.txt https://example.com/file.txt`
+
+> Downloads the `file.txt` from `example.com` and saves it as `myfile.txt`.
+
+`curl -I https://example.com`
+
+> Fetches and displays the headers of the `example.com` website.
+
+###### [ ← Back to table of contents ](#tableOfContents)
+---
+
+### <a name="nc"></a> `nc` *also known as* **Netcat**
+
+Description:
+
+> `nc` (Netcat) is a versatile networking utility often referred to as the "Swiss Army knife" for TCP/IP. It can be used for port scanning, transferring data, creating listening sockets, and more.
+
+**Available Flags:**
+
+`-l` or `--listen` ***(Listen Mode)***
+> `nc -l <port>` creates a listening socket and waits for incoming connections on the specified port.
+
+`-p` or `--port` ***(Specify Port)***
+> `nc -l -p <port>` specifies the port number to listen on.
+
+`-v` or `--verbose` ***(Verbose Output)***
+> `nc -v <host> <port>` enables verbose output, providing more details about the connection.
+
+Examples:
+
+`nc -l 1234`
+
+> Creates a listening socket on port 1234.
+
+`nc -l -p 2222`
+
+> Creates a listening socket on port 2222.
+
+`nc -v example.com 80`
+
+> Connects to `example.com` on port 80 with verbose output.
+
+###### [ ← Back to table of contents ](#tableOfContents)
+---
+
+
+### <a name="map"></a> `map` *also known as* **Netcat for Mapping**
+
+Description:
+
+> `map` is a variant of `nc` that is used for scanning and mapping TCP or UDP ports on a target host. It's commonly used for network reconnaissance.
+
+**Available Flags:**
+
+`<host>` ***(Target Host)***
+> `map <host>` scans and maps the open TCP and UDP ports on the target host.
+
+`-p` or `--ports` ***(Specify Ports Range)***
+> `map -p <ports>` scans the specified range of ports instead of the default 1-1024.
+
+Examples:
+
+`map example.com`
+
+> Scans and maps the open TCP and UDP ports on `example.com`.
+
+`map -p 80,443 example.com`
+
+> Scans and maps the open TCP and UDP ports 80 and 443 on `example.com`.
+
+###### [ ← Back to table of contents ](#tableOfContents)
+---
+
+
+### <a name="ip"></a> `ip` *also known as* **ip Command**
+
+Description:
+
+> The `ip` command is used to manage network interfaces and routing tables in Linux. It provides a more extensive set of features than the traditional `ifconfig` command.
+
+**Available Flags:**
+
+`link` ***(Manage Network Interfaces)***
+> `ip link` displays and manages network interfaces.
+
+`addr` ***(Manage IP Addresses)***
+> `ip addr` displays and manages IP addresses associated with network interfaces.
+
+`route` ***(Manage Routing Table)***
+> `ip route` displays and manages the kernel routing table.
+
+Examples:
+
+`ip link`
+
+> Displays information about all network interfaces.
+
+`ip addr show eth0`
+
+> Shows IP addresses assigned to the `eth0` interface.
+
+`ip route show`
+
+> Shows the kernel routing table.
+
+###### [ ← Back to table of contents ](#tableOfContents)
+---
+
+
+### <a name="dig"></a> `dig`
+
+Description:
+
+> `dig` (Domain Information Groper) is a command-line tool used to query DNS servers and retrieve DNS information for a domain name.
+
+**Available Flags:**
+
+`<domain>` ***(Domain Name)***
+> `dig <domain>` queries DNS servers to retrieve DNS information for the specified domain name.
+
+`-t` or `--type` ***(Query Type)***
+> `dig -t <query_type> <domain>` specifies the query type, such as A, AAAA, MX, CNAME, etc.
+
+Examples:
+
+`dig example.com`
+
+> Queries DNS servers for information about `example.com`.
+
+`dig -t MX example.com`
+
+> Queries DNS servers for Mail Exchange (MX) records of `example.com`.
+
+###### [ ← Back to table of contents ](#tableOfContents)
+---
+
+
+### <a name="arp"></a> `arp`
+
+Description:
+
+> `arp` (Address Resolution Protocol) is a command-line tool used to display and manage the ARP cache, which translates IP addresses to MAC addresses on a local network.
+
+**Available Flags:**
+
+`-a` or `--all` ***(Display All Entries)***
+> `arp -a` displays all entries in the ARP cache.
+
+Examples:
+
+`arp -a`
+
+> Displays all entries in the ARP cache.
+
+###### [ ← Back to table of contents ](#tableOfContents)
+---
+
 
 ## <a name="packageManagement"></a> Package Management
 
+### <a name="apt-get"></a> `apt-get` *also known as* **APT Package Handling Utility**
+
+Description:
+
+> `apt-get` is the command-line tool for handling packages in Debian-based Linux distributions. It provides a way to install, upgrade, or remove software packages on a system.
+
+**Available Flags:**
+
+`update` ***(Retrieve New Lists of Packages)***
+> `apt-get update` downloads the package lists from the repositories and "updates" them to get information on the newest versions of packages and their dependencies.
+
+`upgrade` ***(Perform an Upgrade)***
+> `apt-get upgrade` will fetch new versions of packages existing on the machine if APT knows about these new versions by way of `apt-get update`.
+
+`install` ***(Install New Packages)***
+> `apt-get install` is followed by one or more packages desired for installation or upgrading.
+
+`remove` ***(Remove Packages)***
+> `apt-get remove` is used to remove an installed package, leaving configuration files intact.
+
+`autoremove` ***(Remove Unused Packages)***
+> `apt-get autoremove` is used to remove packages that were automatically installed to satisfy dependencies for other packages and are now no longer needed.
+
+`dist-upgrade` ***(Distribution Upgrade)***
+> `apt-get dist-upgrade` in addition to performing the function of upgrade, this option also intelligently handles changing dependencies with new versions of packages.
+
+`purge` ***(Remove Packages and Configuration Files)***
+> `apt-get purge` is identical to remove except that packages are removed and purged. Any configuration files are also deleted.
+
+Examples:
+
+`sudo apt-get update`
+
+> Updates package lists
+
+`sudo apt-get upgrade`
+
+> Upgrades all upgradable packages
+
+`sudo apt-get install git`
+
+> Installs git
+
+`sudo apt-get remove git`
+
+> Removes git
+
+`sudo apt-get autoremove`
+
+> Removes all unused packages
+
+`sudo apt-get dist-upgrade`
+
+> Upgrades packages and intelligently handles changing dependencies
+
+`sudo apt-get purge git`
+
+> Removes git and its configuration files
+
+###### [ ← Back to table of contents ](#tableOfContents)
+---
+
+### <a name="yum"></a> `yum` *also known as* **Yellowdog Updater Modified**
+
+Description:
+
+> `yum` is the default package manager for Red Hat based distributions such as CentOS, Fedora or RHEL. It is used to install, uninstall, update, list available packages, update all or a specific package, etc.
+
+**Available Flags:**
+
+`install` ***(Install a Package)***
+> `yum install` is used to install the latest version of a package or group of packages while ensuring that all dependencies are resolved.
+
+`update` ***(Update a Package)***
+> `yum update` is used to update all the installed packages to the latest available versions.
+
+`remove` ***(Remove a Package)***
+> `yum remove` is used to remove any specified packages from the system along with any packages dependent on the package being removed.
+
+`list` ***(List a Package)***
+> `yum list` is used to list various information about available packages; it can list all available and installed packages in the system.
+
+`check-update` ***(Check for Updates)***
+> `yum check-update` checks the server for any updates that are applicable to your system.
+
+`info` ***(Provide Information about a Package)***
+> `yum info` is used to display detailed information about a package.
+
+`clean` ***(Clean Yum Cache)***
+> `yum clean` is used to clean up various things which accumulate in the yum cache over time.
+
+Examples:
+
+`sudo yum install git`
+
+> Installs the git package
+
+`sudo yum update`
+
+> Updates all packages
+
+`sudo yum remove git`
+
+> Removes the git package
+
+`yum list installed`
+
+> Lists all installed packages
+
+`sudo yum check-update`
+
+> Checks for package updates
+
+`yum info git`
+
+> Provides information about the git package
+
+`sudo yum clean all`
+
+> Cleans up the yum cache
+
+###### [ ← Back to table of contents ](#tableOfContents)
+---
+
+### <a name="pacman"></a> `pacman` *also known as* **Package Manager**
+
+Description:
+
+> `pacman` is the package manager for Arch-based distributions. It is used to install, remove, and update packages. `pacman` also tracks the dependencies of each package to ensure that all software is working as expected.
+
+**Available Flags:**
+
+`-S` ***(Synchronize Packages)***
+> `pacman -S` is used to install a package.
+
+`-Sy` ***(Refresh Package Lists)***
+> `pacman -Sy` refreshes the package lists from the repositories.
+
+`-Su` ***(Upgrade All Packages)***
+> `pacman -Su` upgrades all packages that are out-of-date.
+
+`-R` ***(Remove Packages)***
+> `pacman -R` is used to remove a package.
+
+`-Rs` ***(Remove Unused Packages)***
+> `pacman -Rs` removes a package and its unused dependencies.
+
+`-Ss` ***(Search Package Database)***
+> `pacman -Ss` is used to search the package database.
+
+`-Q` ***(Query the Package Database)***
+> `pacman -Q` queries the local package database.
+
+Examples:
+
+`sudo pacman -Sy`
+
+> Updates the package list
+
+`sudo pacman -S firefox`
+
+> Installs the firefox package
+
+`sudo pacman -Su`
+
+> Upgrades all packages
+
+`sudo pacman -R firefox`
+
+> Removes the firefox package
+
+`sudo pacman -Rs firefox`
+
+> Removes the firefox package and its unused dependencies
+
+`pacman -Ss firefox`
+
+> Searches the package database for the firefox package
+
+`pacman -Q firefox`
+
+> Queries the local package database for the firefox package
+
+###### [ ← Back to table of contents ](#tableOfContents)
+---
+
+### <a name="brew"></a> `brew` *also known as* **Homebrew**
+
+Description:
+
+> `brew` (Homebrew) is a package manager for macOS that allows you to easily install, update, and manage various software packages, libraries, and tools. This command requires an installation from [ Homebrew ](https://brew.sh)
+
+**Available Flags:**
+
+`install` ***(Install a Package or Formula)***
+> `brew install` is used to install a package or formula from the Homebrew repository.
+
+`uninstall` ***(Uninstall a Package or Formula)***
+> `brew uninstall` is used to uninstall a previously installed package or formula.
+
+`search` ***(Search for Packages)***
+> `brew search` allows you to search for packages available in the Homebrew repository.
+
+`update` ***(Update Homebrew and Upgrade Packages)***
+> `brew update` updates the Homebrew itself and `brew upgrade` upgrades the installed packages.
+
+`list` ***(List Installed Packages or Formulas)***
+> `brew list` shows a list of all installed packages or formulas.
+
+`info` ***(Display Information About a Package or Formula)***
+> `brew info` displays detailed information about a package or formula.
+
+Examples:
+
+`brew install wget`
+
+> Installs the wget package
+
+`brew uninstall wget`
+
+> Uninstalls the wget package
+
+`brew search python`
+
+> Searches for packages related to Python
+
+`brew update`
+
+> Updates Homebrew itself
+
+`brew upgrade`
+
+> Upgrades all installed packages
+
+`brew list`
+
+> Lists all installed packages
+
+`brew info wget`
+
+> Displays information about the wget package
+
+###### [ ← Back to table of contents ](#tableOfContents)
+---
+
+
 ## <a name="otherCommands"></a> Other Commands
+
+### <a name="man"></a> `man` *also known as* **Manual Pages**
+
+Description:
+
+> `man` is used to display the manual pages (documentation) for various commands in Linux. It provides detailed information, usage instructions, and options for each command.
+
+**Available Flags:**
+
+`<command>` ***(Show Manual for the Specified Command)***
+> `man <command>` displays the manual page for the specified command.
+
+Examples:
+
+`man ls`
+
+> Displays the manual page for the `ls` command
+
+`man grep`
+
+> Displays the manual page for the `grep` command
+
+###### [ ← Back to table of contents ](#tableOfContents)
+---
+
+### <a name="history"></a> `history`
+
+Description:
+
+> `history` is a command that shows a list of previously executed commands in the current shell session. It provides a history of all the commands you have executed.
+
+**Available Flags:**
+
+`history` does not have any flags.
+
+Examples:
+
+`history`
+
+> Displays the command history of the current shell session
+
+###### [ ← Back to table of contents ](#tableOfContents)
+---
+
+### <a name="alias"></a> `alias`
+
+Description:
+
+> `alias` is used to create, list, or remove command aliases in Linux. Aliases are shortcuts or alternate names for commands or command combinations.
+
+**Available Flags:**
+
+`<alias-name>` ***(Define an Alias for a Command)***
+> `alias <alias-name>` defines a new alias for the specified command.
+
+`-p` or `--p` ***(List Aliases)***
+> `alias -p` lists all defined aliases.
+
+`unalias` ***(Remove an Alias)***
+> `unalias` removes the specified alias.
+
+Examples:
+
+`alias ll='ls -l'`
+
+> Creates an alias 'll' for the `ls -l` command
+
+`alias c=clear`
+
+> Creates an alias 'c' for the `clear` command
+
+`alias -p`
+
+> Lists all defined aliases
+
+`unalias ll`
+
+> Removes the alias 'll'
+
+###### [ ← Back to table of contents ](#tableOfContents)
+---
