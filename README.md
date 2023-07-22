@@ -78,13 +78,19 @@ This document is a markdown dictionary with copy and paste commands that can be 
 - [`ping` |  Send ICMP echo request packets to test network connectivity](#ping)
 - [`ifconfig` | Display or configure network interfaces](#ifconfig)
 - [`netstat` | Display network statistics](#netstat)
-- [`wget` | ](#wget)
-- [`curl` | ](#curl)
+- [`wget` | Non-interactive network downloader](#wget)
+- [`curl` | Command line tool and library for transferring data with URLs](#curl)
 - [`nc` | Netcat, a versatile networking utility that can act as a simple TCP/UDP client and server](#nc)
 - [`nmap` | Network exploration tool and security / port scanner](#nmap)
 - [`ip` | A versatile command for network interface configuration and management](#ip)
 - [`dig` | DNS lookup tool for querying DNS servers and retrieving DNS records](#dig)
 - [`arp` | Display and modify the ARP (Address Resolution Protocol) cache](#dig)
+
+[**Package Management**](#packageManagement)
+
+- [`apt-get` | Command-line tool for handling packages in Debian-based systems](#apt-get)
+- [`yum` | Package manager for systems based on Fedora/RHEL](#yum)
+- [`pacman` | Package manager for Arch Linux](#pacman)
 
 [**Other**](#otherCommands)
 
@@ -367,5 +373,7 @@ Examples:
 ## <a name="remoteConnectivity"></a> Remote Connectivity
 
 ## <a name="networkingCommands"></a> Networking
+
+## <a name="packageManagement"></a> Package Management
 
 ## <a name="otherCommands"></a> Other Commands
