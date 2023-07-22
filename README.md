@@ -2,17 +2,19 @@
 
 This document is a markdown dictionary with copy and paste commands that can be used for Linux Flavors as well as Mac OS
 
-
 ## Table of Contents:
+
+[**File System**](#fileSystem)
 
 - [`cd` | Change Directory](#cd)
 - [`pwd` | Print Working Directory](#pwd)
-- [`ls` | List](#ls)
+- [`ls` | List files and Directories](#ls)
 - [`mkdir` | Make Directories](#mkdir)
 - [`rmdir` | Remove Directories](#rmdir)
 - [`rm` | Remove Files and Directories](#rm)
 - [`cp` | Copy Files and Directories](#cp)
 - [`mv` | Move or Rename files and Directories](#mv)
+- [`nano` | Easy-to-use text editor](#nano)
 - [`touch` | Create an empty file](#touch)
 - [`cat` | Concatenate and display the contents of a file ](#cat)
 - [`more` | Display file content one screen at a time](#more)
@@ -36,7 +38,61 @@ This document is a markdown dictionary with copy and paste commands that can be 
 - [`zip` | Package files into a zip archive](#zip)
 - [`unzip` | Extract files from a zip archive](#unzip)
 
-## File System
+[**System and Service manager**](#systemServices)
+
+- [`sudo` | Execute a command with superuser (root) privileges ](#sudo)
+- [`su` | Switch to another user account or become the superuser ](#su)
+- [`useradd` | Create a new user account ](#useradd)
+- [`userdel` | Delete a user account ](#userdel)
+- [`passwd` | Change the password of a user account ](#passwd)
+- [`groupadd` | Create a new group ](#groupadd)
+- [`groupdel` | Delete a group ](#groupdel)
+- [`ps` | Process Status ](#ps)
+- [`top` | Display real-time information about the system's current processes. ](#top)
+- [`systemctl` | System and service manager for a Modern Linux OS](#systemctl)
+- [`journalctl` | View logs for a service on a Modern Linux OS](#journalctl)
+- [`kill` | : Terminate processes using their process IDs (PIDs)](#kill)
+- [`shutdown` | Shutdown or restart the system](#shutdown)
+- [`reboot` | Reboot the system](#reboot)
+- [`uname` | Print System Operating System Information](#uname)
+- [`hostname` | Display or set the system's hostname](#hostname)
+- [`date` | Display or set the system date and time](#date)
+- [`uptime` | Show how long the system has been running](#uptime)
+- [`free` | Display the system's memory usage](#free)
+- [`fdisk` | Partition table manipulator for creating, deleting, and managing disk partitions](#fdisk)
+- [`lsusb` | List USB devices](#lsusb)
+- [`lsdev` | List devices](#lsdev)
+- [`iptables` | Configure firewall rules (IPv4)](#iptables)
+- [`ufw` | Uncomplicated Firewall - a user-friendly interface for managing iptables (Ubuntu and Debian-based systems)](#ufw)
+
+[**Remote Connectivity**](#remoteConnectivity)
+
+- [`ssh` | Secure Shell command for remote login and executing commands on a remote machine securely](#ssh)
+- [`sshuttle` | Create a secure VPN tunnel using SSH](#sshuttle)
+- [`scp` | Securely copy files between local and remote machines](#scp)
+- [`sftp` | Secure File Transfer Protocol for interactive file transfers between local and remote machines](#sftp)
+- [`rsync` | Synchronize files and directories between local and remote systems](#rsync)
+
+[**Networking**](#networkingCommands)
+
+- [`ping` |  Send ICMP echo request packets to test network connectivity](#ping)
+- [`ifconfig` | Display or configure network interfaces](#ifconfig)
+- [`netstat` | Display network statistics](#netstat)
+- [`wget` | ](#wget)
+- [`curl` | ](#curl)
+- [`nc` | Netcat, a versatile networking utility that can act as a simple TCP/UDP client and server](#nc)
+- [`nmap` | Network exploration tool and security / port scanner](#nmap)
+- [`ip` | A versatile command for network interface configuration and management](#ip)
+- [`dig` | DNS lookup tool for querying DNS servers and retrieving DNS records](#dig)
+- [`arp` | Display and modify the ARP (Address Resolution Protocol) cache](#dig)
+
+[**Other**](#otherCommands)
+
+- [`man` | Display manual information on a command](#man)
+- [`history` | Display history of commands performed by a user](#history)
+- [`alias` | Create an alias of a command](#alias)
+
+## <a name="fileSystem"></a> File System
 
 ### <a name="cd"></a> `cd` *also known as* **Change Directory**
 
@@ -305,3 +361,11 @@ Examples:
 
 `mv -u source.txt destination.txt`
 > Moves "source.txt" to "destination.txt" only if "source.txt" is newer than "destination.txt" or if "destination.txt" is missing.
+
+## <a name="systemServices"></a> System and Service manager
+
+## <a name="remoteConnectivity"></a> Remote Connectivity
+
+## <a name="networkingCommands"></a> Networking
+
+## <a name="otherCommands"></a> Other Commands
