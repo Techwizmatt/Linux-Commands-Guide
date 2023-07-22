@@ -2,7 +2,7 @@
 
 This document is a markdown dictionary with copy and paste commands that can be used for Linux Flavors as well as Mac OS
 
-## Table of Contents:
+## <a name="tableOfContents"></a> Table of Contents:
 
 [**File System**](#fileSystem)
 
@@ -128,6 +128,7 @@ Examples:
 
 > This will take you to the directory *System* that is within *Systemd*, within *etc*
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="pwd"></a> `pwd` *also known as* **Print Working Directory** 
@@ -143,6 +144,7 @@ Examples:
 
 > Displays to the Command Line Interface the current directory in which the user is working
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="ls"></a> `ls` *also known as* **List**
@@ -192,6 +194,7 @@ Examples:
 
 > list of all files and directories in the current users directory in long format, all files, file size in human readable format, and files sorted by there size.
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="mkdir"></a> `mkdir` *also known as* **Make Directory**
@@ -227,6 +230,7 @@ Examples:
 
 > Creates the full directory starting from the root of the filesystem. If the Directory does exist it will continue down, otherwise it'll make it. This command example will create a Directory called "data", then within it a Directory called "New Folder" then another inside called "Example"
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="rmdir"></a> `rmdir` *also known as* **Remove Directory** 
@@ -250,6 +254,7 @@ Examples:
 
 >Attempts to remove "SubFolder" and its parent directory "FolderName" in the current working directory. Both directories must be empty for this to succeed.
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 ### <a name="rm"></a> `rm` *also known as* **Remove Files or Directories** 
 
@@ -291,6 +296,7 @@ Examples:
 `rm -i FileName`
 > Prompts for confirmation before attempting to remove the file named "FileName".
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 ### <a name="cp"></a> `cp` *also known as* **Copy Files and Directories** 
 
@@ -332,6 +338,7 @@ Examples:
 `cp -v source.txt destination.txt`
 > Copies "source.txt" to "destination.txt" and explains what is being done.
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="mv"></a> `mv` *also known as* **Move or Rename Files**
@@ -368,6 +375,7 @@ Examples:
 `mv -u source.txt destination.txt`
 > Moves "source.txt" to "destination.txt" only if "source.txt" is newer than "destination.txt" or if "destination.txt" is missing.
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="nano"></a> `nano` *also known as* **Nano's ANOther editor**
@@ -415,6 +423,7 @@ Examples:
 
 > Opens 'filename' in Nano and positions the cursor at line 10
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="touch"></a> `touch` *also known as* **Change File Timestamps**
@@ -460,6 +469,7 @@ Examples:
 
 > Sets the access and modification times of 'filename' to 15:30 (3:30 PM), July 22, 2023
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="cat"></a> `cat` *also known as* **Concatenate**
@@ -508,6 +518,7 @@ Examples:
 
 > Appends standard input or another file's contents to the end of 'filename'
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="more"></a> `more` *also known as* **Pager**
@@ -555,6 +566,7 @@ Examples:
 
 > Displays the contents of 'file1' and 'file2', one after the other, using the `more` paging system
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="tail"></a> `tail` *also known as* **Output the Last Part of Files**
@@ -600,6 +612,7 @@ Examples:
 
 > Quiet mode, displays last 5 lines from 'file1' and 'file2' without showing the file headers
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="ln"></a> `ln` *also known as* **Link**
@@ -645,6 +658,7 @@ Examples:
 
 > Forces the creation of a symbolic link by removing 'file2' if it exists, before creating the link
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="find"></a> `find` *also known as* **Find Files and Directories**
@@ -693,6 +707,7 @@ Examples:
 
 > Finds all files in '/home/user' that are larger than 100 Megabytes
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="grep"></a> `grep` *also known as* **Global Regular Expression Print**
@@ -756,6 +771,7 @@ Examples:
 
 > Creates a list of words and uses `grep` to print words ending with 'at'
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="wc"></a> `wc` *also known as* **Word, Line, Character, and Byte Count**
@@ -804,6 +820,7 @@ Examples:
 
 > Lists the files and directories in the current directory and pipes the output to `wc -l` to count the number of items
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="chmod"></a> `chmod` *also known as* **Change Mode**
@@ -850,6 +867,7 @@ Examples:
 
 > Recursively (-R) sets read and write permissions for the owner and read permission for the group and others for all files in 'directory' 
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="chown"></a> `chown` *also known as* **Change Owner**
@@ -892,6 +910,7 @@ Examples:
 
 > Changes the owner and group of 'target_file' to be the same as those of 'ref_file'
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="chgrp"></a> `chgrp` *also known as* **Change Group**
@@ -929,6 +948,7 @@ Examples:
 
 > Changes the group of 'file1', 'file2', and 'file3' to 'newgroup'
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="df"></a> `df` *also known as* **Disk Free**
@@ -971,6 +991,7 @@ Examples:
 
 > Shows the disk space usage of all filesystems, even those with 0 blocks
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="du"></a> `du` *also known as* **Disk Usage**
@@ -1016,6 +1037,7 @@ Examples:
 
 > Displays a grand total usage at the end (-c) and in a human-readable format (-h) for the specified 'directory'
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="mount"></a> `mount` *also known as* **Mount File Systems**
@@ -1064,6 +1086,7 @@ Examples:
 
 > Mounts a CD-ROM in read-only mode
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="umount"></a> `umount` *also known as* **Unmount File Systems**
@@ -1109,6 +1132,7 @@ Examples:
 
 > Forces unmount (use with caution as it can cause data loss)
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="file"></a> `file` *also known as* **File Type**
@@ -1154,6 +1178,7 @@ Examples:
 
 > Outputs the information minus the filename (brief mode)
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="stat"></a> `stat` *also known as* **File or File System Status**
@@ -1199,6 +1224,7 @@ Examples:
 
 > Customizes output using printf formatting. This example shows the name and size of 'filename'
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="tar"></a> `tar` *also known as* **Tape Archive**
@@ -1246,6 +1272,7 @@ Examples:
 
 > Extracts a bzipped (-j) tar archive. This is for decompressing and extracting the archive
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="gzip"></a> `gzip` *also known as* **GNU zip**
@@ -1290,6 +1317,7 @@ Examples:
 
 > Lists (-l) information about the gzipped 'filename.gz' file, such as compression ratio
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="gunzip"></a> `gunzip` *also known as* **GNU unzip**
@@ -1335,6 +1363,7 @@ Examples:
 
 > Lists (-l) information about the gzipped 'filename.gz' file, such as compression ratio
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="zip"></a> `zip` *also known as* **Package and Compress (Zip) Files**
@@ -1380,6 +1409,7 @@ Examples:
 
 > Creates a password protected zip file (-e stands for encrypt)
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="unzip"></a> `unzip` *also known as* **Extract Compressed Files in a ZIP Archive**
@@ -1428,6 +1458,7 @@ Examples:
 
 > Extracts specific 'filename' from 'archive.zip'
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ## <a name="systemServices"></a> System and Service manager
@@ -1474,6 +1505,7 @@ Examples:
 
 > Executes the previous command as the superuser. '!!' is a shortcut for the previous command in the Bash shell.
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="su"></a> `su` *also known as* **Switch User**
@@ -1515,6 +1547,7 @@ Examples:
 
 > Runs 'command' as root
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="useradd"></a> `useradd` *also known as* **User Add**
@@ -1562,6 +1595,7 @@ Examples:
 
 > Creates a new user named 'username' with a specified home directory
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="userdel"></a> `userdel` *also known as* **User Delete**
@@ -1592,6 +1626,7 @@ Examples:
 
 > Force deletes the user 'username' even if they are still logged in (-f stands for force)
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="passwd"></a> `passwd` *also known as* **Password**
@@ -1636,6 +1671,7 @@ Examples:
 
 > Deletes 'username's password, making their account password-less (-d stands for delete)
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="groupadd"></a> `groupadd` *also known as* **Group Add**
@@ -1663,6 +1699,7 @@ Examples:
 
 > Creates a new group with a specific group ID (gid)
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="groupdel"></a> `groupdel` *also known as* **Group Delete**
@@ -1681,6 +1718,7 @@ Examples:
 
 > Deletes the group named 'groupname'
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="ps"></a> `ps` *also known as* **Process Status**
@@ -1726,6 +1764,7 @@ Examples:
 
 > Provides detailed information about all processes, system and user ones.
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="top"></a> `top` *also known as* **Table of Processes**
@@ -1771,6 +1810,7 @@ Examples:
 
 > Monitors a specific process by its process ID (PID)
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="systemctl"></a> `systemctl` *also known as* **System Control**
@@ -1867,6 +1907,7 @@ Examples:
 
 > Powers off the system
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="journalctl"></a> `journalctl` *also known as* **Journal Control**
@@ -1938,6 +1979,7 @@ Examples:
 
 > Shows logs for a specific binary
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="kill"></a> `kill` *also known as* **Kill Process**
@@ -1972,6 +2014,7 @@ Examples:
 
 > Sends the TERM signal to all processes with the given name
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="shutdown"></a> `shutdown` *also known as* **Shutdown System**
@@ -2016,6 +2059,7 @@ Examples:
 
 > Shuts down the system at 10:00 PM
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="reboot"></a> `reboot` *also known as* **Reboot System**
@@ -2038,6 +2082,7 @@ Examples:
 
 > Reboots the system immediately
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="uname"></a> `uname` *also known as* **Unix Name**
@@ -2078,6 +2123,7 @@ Examples:
 
 > Prints the system architecture
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="hostname"></a> `hostname` *also known as* **Host Name**
@@ -2114,6 +2160,7 @@ Examples:
 
 > Sets the system's host name to 'newname' (requires root privileges)
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="date"></a> `date` *also known as* **Date**
@@ -2154,6 +2201,7 @@ Examples:
 
 > Sets the system's date and time to 'July 22, 2023 12:34:56' (requires root privileges)
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="uptime"></a> `uptime` *also known as* **Uptime**
@@ -2180,6 +2228,7 @@ Examples:
 
 > Displays the current system uptime
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="free"></a> `free` *also known as* **Free**
@@ -2220,6 +2269,7 @@ Examples:
 
 > Displays the amount of free and used memory in a human-readable format
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="fdisk"></a> `fdisk` *also known as* **Fixed Disk**
@@ -2253,6 +2303,7 @@ Examples:
 
 > Starts an interactive menu for managing the partition table on the /dev/sda disk
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="lsusb"></a> `lsusb` *also known as* **List USB**
@@ -2282,6 +2333,7 @@ Examples:
 
 > Lists all USB devices connected to the system
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="lsdev"></a> `lsdev` *also known as* **List Devices**
@@ -2300,6 +2352,7 @@ Examples:
 
 > Lists all devices and their properties
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="iptables"></a> `iptables` *also known as* **IP Tables**
@@ -2340,6 +2393,7 @@ Examples:
 
 > Appends a rule to the INPUT chain to accept TCP packets on port 80
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ### <a name="ufw"></a> `ufw` *also known as* **Uncomplicated Firewall**
@@ -2398,6 +2452,7 @@ Examples:
 
 > Sets the default to allow all outgoing connections
 
+###### [ > Back to table of contents ](#tableOfContents)
 ---
 
 ## <a name="remoteConnectivity"></a> Remote Connectivity
