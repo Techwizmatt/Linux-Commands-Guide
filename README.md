@@ -2799,29 +2799,50 @@ Examples:
 ---
 
 
-### <a name="map"></a> `map` *also known as* **Netcat for Mapping**
+### <a name="nmap"></a> `nmap` *also known as* **Network Mapper**
 
 Description:
 
-> `map` is a variant of `nc` that is used for scanning and mapping TCP or UDP ports on a target host. It's commonly used for network reconnaissance.
+> `nmap` (Network Mapper) is a powerful and flexible open-source network scanning tool used for network exploration and security auditing. It discovers hosts and services on a computer network, thus creating a "map" of the network.
 
 **Available Flags:**
 
-`<host>` ***(Target Host)***
-> `map <host>` scans and maps the open TCP and UDP ports on the target host.
+`<target>` ***(Specify Target Host or IP Range)***
+> `nmap <target>` scans the target host or IP range to discover active hosts and open ports.
 
-`-p` or `--ports` ***(Specify Ports Range)***
-> `map -p <ports>` scans the specified range of ports instead of the default 1-1024.
+`-p` or `--port` ***(Specify Port(s) to Scan)***
+> `nmap -p <port(s)> <target>` specifies the port(s) to scan for each target.
+
+`-sS` or `--syn` ***(TCP SYN Scan)***
+> `nmap -sS <target>` performs a TCP SYN scan, the most common and stealthy scan type.
+
+`-sU` or `--udp` ***(UDP Scan)***
+> `nmap -sU <target>` performs a UDP scan to identify open UDP ports.
+
+`-O` or `--osscan` ***(OS Detection)***
+> `nmap -O <target>` tries to identify the operating system of the target hosts.
 
 Examples:
 
-`map example.com`
+`nmap example.com`
 
-> Scans and maps the open TCP and UDP ports on `example.com`.
+> Scans the `example.com` host for open ports using the default scan.
 
-`map -p 80,443 example.com`
+`nmap -p 80,443 example.com`
 
-> Scans and maps the open TCP and UDP ports 80 and 443 on `example.com`.
+> Scans the `example.com` host for open ports 80 and 443.
+
+`nmap -sS example.com`
+
+> Performs a TCP SYN scan on the `example.com` host.
+
+`nmap -sU example.com`
+
+> Performs a UDP scan on the `example.com` host.
+
+`nmap -O example.com`
+
+> Tries to identify the operating system of the `example.com` host.
 
 ###### [ ← Back to table of contents ](#tableOfContents)
 ---
@@ -2862,7 +2883,7 @@ Examples:
 ---
 
 
-### <a name="dig"></a> `dig`
+### <a name="dig"></a> `dig` *also known as* **Domain Information Groper**
 
 Description:
 
@@ -2890,7 +2911,7 @@ Examples:
 ---
 
 
-### <a name="arp"></a> `arp`
+### <a name="arp"></a> `arp` *also known as* **Address Resolution Protocol**
 
 Description:
 
