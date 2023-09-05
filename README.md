@@ -86,12 +86,25 @@ This document is a markdown dictionary with copy and paste commands that can be 
 - [`dig` | DNS lookup tool for querying DNS servers and retrieving DNS records](#dig)
 - [`arp` | Display and modify the ARP (Address Resolution Protocol) cache](#dig)
 
+### [**Web Hosting and Services**](#webServices)
+
+- [`certbot` | A Command to issue self signing Certicates (SSL)](#certbot)
+- [`nginx` | A Servicing Application that serves Proxies and Web Services](#nginx)
+
+#### **- NGINX configs**
+
+- [`http_redirect_https` | Config for All Traffic to Server Redirecting from HTTP to HTTPS](#http_redirect_https)
+- [`single_view_application`  | Serving a Single Page Web Application](#vue_service)
+- [`proxy_service`  | Proxying a Webservice through NGINX](#nginx_proxy_service)
+
 ### [**Package Management**](#packageManagement)
 
 - [`apt-get` | Command-line tool for handling packages in Debian-based systems](#apt-get)
 - [`yum` | Package manager for systems based on Fedora/RHEL](#yum)
 - [`pacman` | Package manager for Arch Linux](#pacman)
 - [`brew` | Missing Package manager for Mac OS](#brew)
+- [`pip` | Package Installer for Python](#pip)
+
 
 ### [**Other**](#otherCommands)
 
@@ -2993,6 +3006,227 @@ Examples:
 ---
 
 
+## <a name="webServices"></a> Web Hosting and Services
+
+---
+## <a name="sslCertManagement"></a> SSL Certificate Management
+
+### <a name="certbot"></a> `certbot` *also known as* **Let's Encrypt Certificate Bot**
+
+Description:
+
+> `certbot` is a command-line tool provided by EFF (Electronic Frontier Foundation) to automatically obtain and install SSL/TLS certificates from Let's Encrypt Certificate Authority. It makes HTTPS adoption easier by automating both the certificate issuance and renewal processes.
+
+**Available Flags:**
+
+`certonly` ***(Only Obtain a Certificate)***
+> `certbot certonly` is used when you want to obtain a certificate but not install it. Typically combined with `--webroot`, `--standalone`, `--nginx` or other plugins.
+
+`renew` ***(Renew Certificates)***
+> `certbot renew` will renew all of the certificates that certbot manages which are near expiry.
+
+`run` ***(Obtain and Install a Certificate)***
+> `certbot run` obtains a certificate and installs it, potentially replacing an existing certificate with the same name.
+
+`delete` ***(Delete a Certificate)***
+> `certbot delete` will delete a specified certificate that is no longer in use.
+
+`revoke` ***(Revoke a Certificate)***
+> `certbot revoke` is used to revoke a specific certificate by its certificate path.
+
+Examples:
+
+`sudo certbot certonly --webroot -w /var/www/html -d example.com`
+
+> Obtains a certificate for `example.com` using the webroot plugin.
+
+`sudo certbot certonly --nginx -d example.com -d www.example.com`
+
+> Obtains a certificate for `example.com` using the webroot plugin.
+
+`sudo certbot renew`
+
+> Renews all near-expiry certificates managed by certbot.
+
+`sudo certbot run --standalone -d example.com`
+
+> Obtains and installs a certificate for `example.com` using the standalone plugin.
+
+`sudo certbot delete --cert-name example.com`
+
+> Deletes the certificate for `example.com`.
+
+`sudo certbot revoke --cert-path /etc/letsencrypt/live/example.com/cert.pem`
+
+> Revokes the certificate for `example.com` using its certificate path.
+
+###### [ ← Back to table of contents ](#tableOfContents)
+---
+
+
+### <a name="nginx"></a> `nginx` *also known as* **Nginx Web Server**
+
+Description:
+
+> `nginx` is a high-performance HTTP and reverse proxy server, a mail proxy server, and a generic TCP/UDP proxy server. It's known for its high performance, stability, feature set, simple configuration, and low resource consumption.
+
+**Available Flags:**
+
+`-s` ***(Signal to a Master Process)***
+> `nginx -s` allows you to send signals to the master process: stop, quit, reopen, reload.
+
+Examples:
+
+`nginx -s stop`
+> Stops the `nginx` master process immediately.
+
+`nginx -s quit`
+> Gracefully shuts down the `nginx` master process.
+
+`nginx -s reopen`
+> Reopens the log files.
+
+`nginx -s reload`
+> Reloads the configuration file.
+
+`-t` or `--test` ***(Test Configuration File)***
+> `nginx -t` checks the syntax of the configuration file and tests it.
+
+Examples:
+
+`nginx -t`
+> Checks the syntax of the configuration file and tests it.
+
+`-v` ***(Show Version)***
+> `nginx -v` displays the nginx version.
+
+Examples:
+
+`nginx -v`
+> Displays the nginx version.
+
+`-V` ***(Show Version and Configure Options)***
+> `nginx -V` displays the nginx version, compiler version, and configure parameters.
+
+Examples:
+
+`nginx -V`
+> Displays the nginx version, compiler version, and configure parameters.
+
+###### [ ← Back to table of contents ](#tableOfContents)
+---
+
+
+---
+
+### <a name="http_redirect_https"></a> `http_redirect_http` *also known as* **Config for All Traffic to Server Redirecting from HTTP to HTTPS**
+
+Description:
+
+> The configuration below is used to redirect all HTTP traffic coming to the server to its HTTPS counterpart. This is essential for ensuring encrypted and secure communication.
+
+**Configuration:**
+
+```
+server {
+    listen 80 default_server;
+
+    server_name _;
+
+    return 301 https://$host$request_uri;
+}
+```
+
+###### [ ← Back to table of contents ](#tableOfContents)
+---
+
+### <a name="vue_service"></a> `Serve a Single View Application` *also known as* **Serving a Single Page Web Application**
+
+Description:
+
+> This configuration is ideal for serving a Vue 2/3 production website. Additionally, it includes proxy passes for specific routes, ensuring seamless routing for essential paths like sitemap and robots.txt.
+
+**Use Cases:**
+
+> Serving a Vue 2/3 Production Website.
+
+**Configuration:**
+
+```
+server {
+        root /data/EXAMPLE.COM/front-dist/;
+
+        index index.html index.htm index.nginx-debian.html;
+
+        server_name EXAMPLE.COM WWW.EXAMPLE.COM;
+
+        gzip_static on;
+
+        location / {
+          try_files $uri $uri/ /index.html;
+          etag off;
+        }
+
+        # THIS IS A PROXY PASS FOR /sitemap.xml
+        location /sitemap.xml {
+          proxy_pass http://localhost:8080/sitemap.xml;
+          proxy_set_header Host $host;
+        }
+
+        # THIS IS A PROXY PASS FOR /robots.txt
+        location /robots.txt {
+          proxy_pass http://localhost:8080/robots.txt;
+          proxy_set_header Host $host;
+        }
+
+    listen [::]:443 ssl; # managed by Certbot
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/EXAMPLE.COM/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/EXAMPLE.COM/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+}
+```
+
+
+###### [ ← Back to table of contents ](#tableOfContents)
+---
+
+### <a name="nginx_proxy_service"></a> `Proxy Service` *also known as* **Proxying a Webservice through NGINX**
+
+Description:
+
+> The configuration below enables you to route traffic through an NGINX proxy. This is useful for serving web services that don't support SSL (HTTPS) directly, for running web frameworks like Nuxt 3 through a proxy, or for accessing sites on local networks without direct port forwarding.
+
+**Use Cases:**
+
+> - Serving a web service that is not supported for SSL (HTTPS).
+> - Running a Nuxt 3 Web app through a proxy.
+> - Accessing a site on a local network that can't be port forwarded directly.
+
+**Configuration:**
+
+```
+server {
+    server_name API.EXAMPLE.COM;
+	
+    location / {
+       proxy_pass http://localhost:8080;
+    }
+
+    listen [::]:443 ssl; # managed by Certbot
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/API.EXAMPLE.COM/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/API.EXAMPLE.COM/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+}
+```
+
+
+###### [ ← Back to table of contents ](#tableOfContents)
+
+---
 ## <a name="packageManagement"></a> Package Management
 
 ### <a name="apt-get"></a> `apt-get` *also known as* **APT Package Handling Utility**
@@ -3180,6 +3414,69 @@ Examples:
 
 ###### [ ← Back to table of contents ](#tableOfContents)
 ---
+
+### <a name="pip"></a> `pip` *also known as* **Package Installer for Python**
+
+Description:
+
+> `pip` is the package installer for Python. It provides a way to install, upgrade, or remove Python libraries and tools from the Python Package Index (PyPI) and other repositories.
+
+**Available Flags:**
+
+`install` ***(Install Packages)***
+> `pip install` is used to install one or more Python packages.
+
+`uninstall` ***(Uninstall Packages)***
+> `pip uninstall` is used to remove one or more installed Python packages.
+
+`list` ***(List Installed Packages)***
+> `pip list` displays a list of all installed Python packages.
+
+`freeze` ***(Output Installed Packages in Requirements Format)***
+> `pip freeze` outputs the versions of all installed packages, making it easy to reproduce an environment.
+
+`download` ***(Download Packages)***
+> `pip download` is used to download Python packages without installing them.
+
+`search` ***(Search for Packages on PyPI)***
+> `pip search` is used to search for Python packages available on PyPI.
+
+`upgrade` ***(Upgrade Packages)***
+> `pip install --upgrade` is used to upgrade one or more installed Python packages to the latest version.
+
+Examples:
+
+`pip install requests`
+
+> Installs the requests package
+
+`pip uninstall requests`
+
+> Uninstalls the requests package
+
+`pip list`
+
+> Lists all installed Python packages
+
+`pip freeze > requirements.txt`
+
+> Saves the list of all installed packages with their versions to `requirements.txt`
+
+`pip download requests`
+
+> Downloads the requests package without installing it
+
+`pip search "web framework"`
+
+> Searches PyPI for Python packages related to "web framework"
+
+`pip install --upgrade requests`
+
+> Upgrades the requests package to the latest version
+
+###### [ ← Back to table of contents ](#tableOfContents)
+---
+
 
 ### <a name="brew"></a> `brew` *also known as* **Homebrew**
 
